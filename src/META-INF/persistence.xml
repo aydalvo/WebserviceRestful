@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<persistence version="2.0"
+	xmlns="http://java.sun.com/xml/ns/persistence" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://java.sun.com/xml/ns/persistence http://java.sun.com/xml/ns/persistence/persistence_2_0.xsd">
+
+	<persistence-unit name="WebserviceRestful">
+		<provider>org.hibernate.ejb.HibernatePersistence</provider>
+		<class>br.com.webservicerestful.modelo.Coordenada</class>
+		<class>br.com.webservicerestful.modelo.Cidade</class>
+		
+		<properties>
+		
+			<property name="hibernate.cache.use_second_level_cache" 		value="true"/>
+			<property name="hibernate.cache.provider_class" 				value="org.hibernate.cache.EhCacheProvider"/>
+		
+			<property name="hibernate.search.default.directory_provider" 	value="org.hibernate.search.store.FSDirectoryProvider"/>
+			<property name="hibernate.search.default.indexBase" 			value="lucene/indexes/WebContent/WEB-INF/lucene/indexes/"/>
+			<property name="hibernate.search.analyzer" 						value="org.apache.lucene.analysis.br.BrazilianAnalyzer"/>
+		
+			<property name="hibernate.connection.provider_class"			value="org.hibernate.connection.C3P0ConnectionProvider"/>
+			
+			<property name="hibernate.c3p0.min_size" 						value="5"/>
+			<property name="hibernate.c3p0.max_size" 						value="20"/>
+			<property name="hibernate.c3p0.timeout" 						value="180"/>
+			<property name="hibernate.c3p0.idle_test_period" 				value="100"/>
+		
+			<!-- 
+			<property name="hibernate.dialect" 								value="org.hibernate.dialect.MySQLInnoDBDialect"/>
+			 -->
+			<property name="hibernate.dialect" 								value="org.hibernate.dialect.MySQLDialect"/>
+			<!-- poderia ser: create,create-drop -->
+			<property name="hibernate.hbm2ddl.auto" 						value="update"/>
+			<property name="hibernate.show_sql" 							value="true"/>
+			<property name="hibernate.format_sql" 							value="true"/>
+			
+			<property name="javax.persistence.jdbc.driver" 					value="com.mysql.jdbc.Driver"/>
+			<property name="javax.persistence.jdbc.url" 					value="jdbc:mysql://localhost/webservice"/>
+			<property name="javax.persistence.jdbc.user" 					value="root"/>
+			<property name="javax.persistence.jdbc.password" 				value=""/>
+		</properties>
+	</persistence-unit>
+	
+</persistence>
